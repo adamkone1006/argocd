@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-app
+  namespace: default
+
 spec:
   replicas: 1
   selector:
@@ -27,11 +29,13 @@ spec:
               cpu: "500m"
 
 
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: hello-service
+  namespace: default
 spec:
   selector:
     app: hello-app
